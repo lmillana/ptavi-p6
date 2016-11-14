@@ -23,12 +23,12 @@ except Exception:
 
 
 # Contenido que vamos a enviar:
-LINE = METHOD + ' sip:' + SERVER + '@' + IP + ' SIP/2.0\r\n' 
+LINE = METHOD + ' sip:' + SERVER + '@' + IP + ' SIP/2.0\r\n'
 
 # Creamos el socket, lo configuramos y lo atamos a un servidor/puerto
 my_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 my_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-my_socket.connect((SERVER, PORT))
+my_socket.connect((IP, PORT))
 
 print("Enviando: " + LINE)
 my_socket.send(bytes(LINE, 'utf-8') + b'\r\n')
